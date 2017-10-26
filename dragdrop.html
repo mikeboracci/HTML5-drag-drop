@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+#div1, #div3 {
+width:280px;
+height:180px;
+margin:10px;
+padding:10px;
+border:1px solid #aaaaaa;
+border-radius:6px;
+}
+#div2,#div4 {
+width:280px;
+height:180px;
+margin:10px;
+padding:10px;
+border:1px solid #aaaaaa;
+border-radius:6px;
+}
+.column{
+float:left;
+
+}
+
+
+.row{
+clear:both;
+
+
+}
+
+
+</style>
+</head>
+<body>
+<script type="text/javascript">
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+
+<div class="row">
+<!--  the green image-->
+     <div class="column">
+           <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+                 <img src="drag.png" draggable="true" ondragstart="drag(event)" width="250" height="150" id="drag1">
+           </div>
+     </div>
+<!--  the red image-->
+    <div class="column"       
+       <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
+       <img src="drag2.png" draggable="true" ondragstart="drag(event)" width="250" height="150" id="drag2">
+       </div>
+      </div>
+</div>
+
+<div class="row">
+     <div class="column">
+<!--  the blue image-->
+       <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img src="drag3.png" draggable="true" ondragstart="drag(event)" width="250" height="150" id="drag3">
+       </div>
+      </div>
+<div class="column">
+<!--  the yellow image-->
+       <div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img src="drag4.png" draggable="true" ondragstart="drag(event)" width="250" height="150" id="drag4">
+       </div>
+      </div>
+</div>              
+                                
+</body>
+</html>
